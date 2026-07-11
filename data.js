@@ -27,7 +27,7 @@ const PROFILE = {
     // GANTI FOTO KAMU DI SINI. Taruh file foto di folder assets/images/
     // lalu isi path-nya di sini, contoh: "assets/images/foto-saya.jpg"
     // CATATAN: hindari spasi di nama file (pakai "-" atau "_" sebagai gantinya)
-    photoUrl: "assets/images/handre-profile.jpeg",
+    photoUrl: "handre-profile.jpeg",
     major: "Teknik Informatika",     // GANTI JURUSAN / DIVISI DI SINI
     idNumber: "16/08/2006",          // dipakai untuk field "Tgl Lahir" di ID Card
     validThru: "2026"                // dipakai untuk field "Tahun" di ID Card
@@ -58,7 +58,7 @@ const PROJECTS = [
   {
     title: "Analisis Udara",
     desc: "Analis pengelompokan tingkat polusi udara berdasarkan kadar gas berbahaya menggunakan metode PCA.",
-    image: "assets/images/analis.png", // GANTI dengan "assets/images/project-1.jpg" jika pakai gambar sendiri
+    image: "analis.png", // GANTI dengan "assets/images/project-1.jpg" jika pakai gambar sendiri
     tags: ["Python", "PCA","K-Means" ],
     demoUrl: "#",
     codeUrl: "#"
@@ -66,7 +66,7 @@ const PROJECTS = [
   {
     title: "Game Unity",
     desc: "Game balapan mobil yang menggunakan AI sebagai lawannya dengan mengunkan unity.",
-    image: "assets/images/game.png",
+    image: "game.png",
     tags: ["C#", "Unity", ],
     demoUrl: "#",
     codeUrl: "#"
@@ -74,7 +74,7 @@ const PROJECTS = [
   {
     title: "Sistem Pendataan Alumni ",
     desc: "Sistem pendataan alumni menggunakan php native dan sudah menggunkan crud.",
-    image: "assets/images/crud.png",
+    image: "crud.png",
     tags: ["php", "mysql", ],
     demoUrl: "#",
     codeUrl: "#"
