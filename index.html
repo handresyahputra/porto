@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Handre Syahputra</title>
+
+<!-- =========================================================
+     GANTI FAVICON DI SINI (opsional)
+     Taruh file favicon.ico / favicon.png di folder assets/
+     lalu ganti href di bawah ini, contoh: "assets/favicon.png"
+========================================================= -->
+<link rel="icon" href="data:,">
+
+<!-- Google Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (data/ID) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Konfigurasi warna & font custom untuk Tailwind -->
+<script src="js/tailwind.config.js"></script>
+
+<!-- Lucide Icons via CDN -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+<!-- Stylesheet custom (efek tilt, glassmorphism, animasi, dll) -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-ink text-slate-200 font-body antialiased">
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink/70 border-b border-border">
+  <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <!-- GANTI INISIAL / LOGO DI SINI -->
+    <a href="#home" class="font-display font-semibold text-lg tracking-tight text-white">
+      Handre Syahputra<span class="text-cyan">.</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-8 text-sm text-muted">
+      <a href="#about" class="nav-link hover:text-white transition-colors">Tentang</a>
+      <a href="#skills" class="nav-link hover:text-white transition-colors">Keahlian</a>
+      <a href="#projects" class="nav-link hover:text-white transition-colors">Proyek</a>
+      <a href="#contact" class="nav-link hover:text-white transition-colors">Kontak</a>
+    </div>
+
+    <a href="#contact" class="hidden md:inline-flex items-center gap-2 text-sm font-medium bg-cyan/10 text-cyan border border-cyan/30 px-4 py-2 rounded-full hover:bg-cyan/20 transition-colors">
+      <i data-lucide="send" class="w-4 h-4"></i> Hubungi Saya
+    </a>
+
+    <!-- Tombol menu mobile -->
+    <button id="menuBtn" class="md:hidden text-white p-2" aria-label="Buka menu">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-ink/95 px-6 py-4 flex flex-col gap-4 text-sm text-muted">
+    <a href="#about" class="mobile-link hover:text-white">Tentang</a>
+    <a href="#skills" class="mobile-link hover:text-white">Keahlian</a>
+    <a href="#projects" class="mobile-link hover:text-white">Proyek</a>
+    <a href="#contact" class="mobile-link hover:text-white">Kontak</a>
+  </div>
+</header>
+
+<!-- =========================================================
+     HERO SECTION
+     Teks di bawah ini hanya teks FALLBACK. Nilai sebenarnya
+     akan otomatis diisi lewat js/data.js (objek PROFILE).
+========================================================= -->
+<section id="home" class="relative pt-40 pb-24 px-6 max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
+
+  <div class="reveal">
+    <p id="heroGreeting" class="font-mono text-cyan text-sm tracking-widest uppercase mb-4">// Halo, saya</p>
+
+    <h1 class="font-display font-semibold text-4xl sm:text-5xl lg:text-6xl leading-tight text-white">
+      <span id="heroName">HANDRE SYAHPUTRA</span>
+    </h1>
+
+    <p id="heroRole" class="mt-4 font-display text-xl sm:text-2xl text-cyan/90">
+      Junior Developer &amp; Junior Data Sains
+    </p>
+
+    <p id="heroTagline" class="mt-6 text-muted leading-relaxed max-w-lg">
+      Saya menghidupkan data lewat analisis akurat dan membangun antarmuka web serta simulasi yang interaktif — 
+      mengubah pola data mentah menjadi solusi aplikasi yang aplikatif di dunia nyata.
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a href="#projects" class="inline-flex items-center gap-2 bg-cyan text-ink font-semibold px-6 py-3 rounded-full hover:bg-cyan/90 transition-colors">
+        Lihat Proyek Saya <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+      </a>
+      <a id="heroResumeLink" href="#" class="inline-flex items-center gap-2 border border-border text-slate-200 px-6 py-3 rounded-full hover:border-cyan/50 hover:text-cyan transition-colors">
+        <i data-lucide="" class="w-4 h-4"></i> lihat
+      </a>
+    </div>
+
+    <!-- Marquee tools singkat -->
+    <div class="mt-14 overflow-hidden max-w-lg [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div class="marquee-track flex gap-8 w-max text-muted text-xs font-mono uppercase tracking-wider">
+        <span>SQL</span><span>·</span><span>PHP</span><span>·</span><span>python</span><span>·</span>
+        <span>PHP</span><span>·</span><span>Python</span><span>·</span><span>SQL</span><span>·</span>
+     
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== ID CARD (KOMPONEN INTERAKTIF) ===================== -->
+  <div class="reveal card-stage flex justify-center lg:justify-end" style="transition-delay:.1s">
+    <div id="idCard" class="id-card relative w-[300px] sm:w-[340px] rounded-[28px] p-[1px] bg-gradient-to-br from-white/15 via-white/5 to-transparent shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)]">
+      <!-- lubang lanyard -->
+      <div class="lanyard-hole absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-3 rounded-full bg-inkalt border border-white/10 z-20"></div>
+
+      <div class="relative rounded-[27px] bg-surface/70 backdrop-blur-xl border border-white/10 overflow-hidden">
+        <div class="glare"></div>
+        <div class="holo-stripe h-2.5 w-full"></div>
+
+        <div class="p-6 pt-8">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <p class="font-mono text-[10px] tracking-[0.2em] text-cyan uppercase">Digital ID Card</p>
+              <p id="cardInstitution" class="text-white font-display font-semibold text-sm leading-tight mt-0.5">
+                Universitas Putra Indonesia
+              </p>
+            </div>
+            <i data-lucide="scan-line" class="w-5 h-5 text-cyan/70"></i>
+          </div>
+
+          <!-- Foto profil: nilai src diisi otomatis dari PROFILE.idCard.photoUrl di js/data.js -->
+          <div class="flex justify-center mb-5">
+            <div class="relative">
+              <div class="absolute inset-0 rounded-2xl bg-cyan/20 blur-xl"></div>
+              <img id="cardPhoto"
+                   src="assets/images/handre-profile.jpeg"
+                   alt="Foto profil"
+                   class="relative w-24 h-24 rounded-2xl object-cover border-2 border-white/20">
+            </div>
+          </div>
+
+          <div class="text-center mb-5">
+            <h3 id="cardName" class="font-display font-semibold text-white text-lg">HANDRE SYAHPUTRA</h3>
+            <p id="cardMajor" class="text-cyan/80 text-sm mt-0.5">Teknik Informatika</p>
+          </div>
+
+          <div class="flex items-center justify-between border-t border-white/10 pt-4 mb-4">
+            <div>
+              <p class="text-[10px] uppercase tracking-wider text-muted">Tgl Lahir</p>
+              <p id="cardId" class="font-mono text-sm text-white mt-0.5">16/08/2006</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] uppercase tracking-wider text-muted">Tahun</p>
+              <p id="cardValid" class="font-mono text-sm text-white mt-0.5">2026</p>
+            </div>
+          </div>
+
+          <!-- QR code tiruan: pola digambar otomatis oleh js/main.js -->
+          <div class="flex items-center justify-between bg-inkalt/60 rounded-xl p-3 border border-white/5">
+            <div id="qrCode" class="grid grid-cols-7 gap-[2px] w-16 h-16 shrink-0"></div>
+            <div class="text-right">
+              <p class="text-[10px] uppercase tracking-wider text-muted">Batahan,Mandailing Natal</p>
+              <p class="text-xs text-white font-medium">Sumatera Utara</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- strip barcode dekoratif -->
+        <div class="px-6 pb-5">
+          <div class="flex gap-[2px] h-6 items-end opacity-70">
+            <div class="w-[2px] bg-white/60 h-full"></div><div class="w-[3px] bg-white/30 h-2/3"></div>
+            <div class="w-[1px] bg-white/60 h-full"></div><div class="w-[4px] bg-white/40 h-1/2"></div>
+            <div class="w-[2px] bg-white/60 h-full"></div><div class="w-[2px] bg-white/30 h-3/4"></div>
+            <div class="w-[1px] bg-white/60 h-full"></div><div class="w-[3px] bg-white/40 h-2/3"></div>
+            <div class="w-[2px] bg-white/60 h-full"></div><div class="w-[5px] bg-white/30 h-1/2"></div>
+            <div class="w-[1px] bg-white/60 h-full"></div><div class="w-[2px] bg-white/40 h-full"></div>
+            <div class="w-[3px] bg-white/60 h-2/3"></div><div class="w-[1px] bg-white/30 h-full"></div>
+            <div class="w-[2px] bg-white/60 h-1/2"></div><div class="w-[2px] bg-white/40 h-full"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     ABOUT & SKILLS SECTION
+========================================================= -->
+<section id="about" class="px-6 py-24 border-t border-border">
+  <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-16">
+
+    <div class="reveal">
+     <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Tentang Saya</p>
+<h2 class="font-display font-semibold text-3xl text-white mb-6">Sedikit cerita tentang saya</h2>
+<!-- GANTI DESKRIPSI TENTANG DIRI DI SINI -->
+<p id="aboutText" class="text-muted leading-relaxed mb-4">
+  Perjalanan saya dimulai dari sebuah desa, tempat di mana akses teknologi awalnya terasa sangat jauh. Namun, rasa penasaran membawa saya melangkah ke dunia IT, dan sejak saat itu saya benar-benar jatuh cinta dengan bidang ini. Bagi saya, coding bukan sekadar mengetik baris instruksi, melainkan sebuah seni untuk menciptakan solusi dari keterbatasan.
+</p>
+<p class="text-muted leading-relaxed">
+  Sebagai mahasiswa Teknik Informatika, saya mendedikasikan waktu saya untuk berkembang di bidang data science. Saya senang mengolah data mentah menjadi wawasan yang bermakna, sekaligus membangun sistem digital yang stabil dan bermanfaat bagi banyak orang. Berbekal semangat juang dari latar belakang saya, saya selalu siap menghadapi tantangan baru dan berkolaborasi dalam proyek-proyek inovatif.
+</p>
+
+      <div class="grid grid-cols-3 gap-4 mt-8">
+        <!-- GANTI ANGKA STATISTIK DI SINI -->
+        <div class="border border-border rounded-2xl p-4 text-center bg-surface/40">
+          <p class="font-display font-semibold text-2xl text-white">2+</p>
+          <p class="text-xs text-muted mt-1">Tahun Belajar</p>
+        </div>
+        <div class="border border-border rounded-2xl p-4 text-center bg-surface/40">
+          <p class="font-display font-semibold text-2xl text-white">5+</p>
+          <p class="text-xs text-muted mt-1">Proyek Selesai</p>
+        </div>
+        <div class="border border-border rounded-2xl p-4 text-center bg-surface/40">
+          <p class="font-display font-semibold text-2xl text-white">5+</p>
+          <p class="text-xs text-muted mt-1">Teknologi</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:.1s">
+      <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3" id="skills">Keahlian</p>
+      <h2 class="font-display font-semibold text-3xl text-white mb-6">Tools &amp; teknologi yang saya kuasai</h2>
+
+      <!-- Grid skill dirender otomatis oleh js/main.js dari js/data.js (SKILLS) -->
+      <div id="skillsGrid" class="grid sm:grid-cols-2 gap-3"></div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PROJECTS SECTION
+========================================================= -->
+<section id="projects" class="px-6 py-24 border-t border-border bg-inkalt/40">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Proyek</p>
+      <h2 class="font-display font-semibold text-3xl text-white mb-3">Beberapa hal yang pernah saya bangun</h2>
+      <p class="text-muted">Kumpulan proyek pilihan, dari eksperimen kecil dan tugas yang saya pelajari di perkulihan.</p>
+    </div>
+
+    <!-- Grid proyek dirender otomatis oleh js/main.js dari js/data.js (PROJECTS) -->
+    <div id="projectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTACT SECTION
+========================================================= -->
+<section id="contact" class="px-6 py-24 border-t border-border">
+  <div class="max-w-4xl mx-auto text-center reveal">
+    <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Kontak</p>
+    <h2 class="font-display font-semibold text-3xl sm:text-4xl text-white mb-4">Mari terhubung</h2>
+    <p class="text-muted max-w-md mx-auto mb-10">
+      .
+    </p>
+
+    <!-- Grid sosial media dirender otomatis oleh js/main.js dari js/data.js (SOCIALS) -->
+    <div id="socialsGrid" class="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto"></div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="px-6 py-8 border-t border-border">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
+    <p>© <span id="footerYear"></span> <span id="footerName">Handre Syahputra</p>
+  
+  </div>
+</footer>
+
+<!-- =========================================================
+     JAVASCRIPT
+     1. data.js  -> SEMUA KONTEN yang perlu kamu edit
+     2. main.js  -> logika render & interaksi (jarang perlu diubah)
+========================================================= -->
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* =============================================================
+   STYLE.CSS
+   Semua CSS custom di luar utility Tailwind ada di sini:
+   background halaman, efek ID Card (tilt & glassmorphism),
+   animasi marquee, scroll reveal, dan scrollbar.
+   Biasanya tidak perlu diubah kecuali ingin ubah efek visual.
+============================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0A0E1A;
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(94, 234, 212, 0.08), transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(245, 185, 66, 0.06), transparent 35%);
+  background-attachment: fixed;
+}
+
+/* ---------- Reveal saat scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Garis bawah pada nav link ---------- */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #5EEAD4;
+  transition: width .3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* =============================================================
+   ID CARD: glassmorphism + tilt 3D + strip hologram
+============================================================= */
+.card-stage {
+  perspective: 1400px;
+}
+
+.id-card {
+  transform-style: preserve-3d;
+  transition: transform .15s ease-out, box-shadow .3s ease;
+  will-change: transform;
+}
+
+/* Efek glare/cahaya yang mengikuti posisi mouse (diatur lewat main.js) */
+.id-card .glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, 0.16), transparent 55%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  mix-blend-mode: overlay;
+}
+.card-stage:hover .id-card .glare {
+  opacity: 1;
+}
+
+/* Strip hologram animasi warna-warni di atas kartu */
+.id-card .holo-stripe {
+  background: linear-gradient(120deg, #5EEAD4 0%, #8B7CF6 25%, #F5B942 50%, #5EEAD4 75%, #8B7CF6 100%);
+  background-size: 250% 250%;
+  animation: holoMove 6s ease infinite;
+}
+@keyframes holoMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.lanyard-hole {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Marquee daftar tools di Hero ---------- */
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Scrollbar custom (subtle) ---------- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0E1A;
+}
+::-webkit-scrollbar-thumb {
+  background: #1E2740;
+  border-radius: 8px;
+}
+
+/* ---------- Aksesibilitas: fokus keyboard ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #5EEAD4;
+  outline-offset: 3px;
+}
+
+/* ---------- Hormati preferensi "reduced motion" ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .id-card, .holo-stripe, .marquee-track {
+    animation: none !important;
+    transition: none !important;
+  }
+}
