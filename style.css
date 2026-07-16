@@ -2,8 +2,7 @@
    STYLE.CSS
    Semua CSS custom di luar utility Tailwind ada di sini:
    background halaman, efek ID Card (tilt & glassmorphism),
-   animasi marquee, scroll reveal, dan scrollbar.
-   Biasanya tidak perlu diubah kecuali ingin ubah efek visual.
+   animasi marquee, scroll reveal, scrollbar, dan RESPONSIVE.
 ============================================================= */
 
 html {
@@ -129,51 +128,86 @@ button:focus-visible {
     transition: none !important;
   }
 }
+
 /* =============================================================
-   RESPONSIVE STYLING (Untuk HP dan Tablet)
-   Menyesuaikan efek ID Card & Marquee agar pas di layar kecil
+   STYLE RESPONSIF CUSTOM (HP & TABLET)
 ============================================================= */
 
+@media (max-width: 1024px) {
+  /* Ubah layout hero grid menjadi satu kolom di tablet dan HP */
+  section#home {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 8rem;
+    gap: 3rem;
+  }
+  
+  /* Sejajarkan konten hero ke tengah */
+  section#home .reveal:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Buat perataan marquee ke tengah */
+  section#home .overflow-hidden {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 768px) {
-  /* 1. Supaya ID Card tidak terlalu besar dan tidak kepotong di HP */
+  /* 1. Atur ID Card agar muat dan presisi di layar HP */
   .card-stage {
-    perspective: 1000px; /* Kurangi perspective agar efek tilt tidak terlalu ekstrem di layar kecil */
+    perspective: 1000px; /* Kurangi efek tilt ekstrim */
     width: 100%;
-    max-width: 320px;    /* Batasi lebar maksimal ID Card di HP */
-    margin: 0 auto;      /* Posisikan persis di tengah */
+    max-width: 310px;    /* Lebar maksimal ID Card di layar kecil */
+    margin: 0 auto;
   }
 
   .id-card {
-    /* Matikan transform 3D saat di-hover di HP agar tidak mengganggu scroll jari */
+    /* Matikan transform tilt 3D hover di HP agar tidak mengganggu scroll touch */
     transform: none !important; 
     transition: box-shadow .3s ease;
   }
 
-  /* 2. Menyesuaikan teks hero agar tidak terlalu besar di HP */
+  /* 2. Sesuaikan skala font agar proporsional di HP */
   h1 {
-    font-size: 2.25rem !important; /* Setara text-4xl Tailwind */
-    line-height: 2.5rem !important;
+    font-size: 2.25rem !important; /* Setara text-4xl */
+    line-height: 2.75rem !important;
   }
   
   h2 {
-    font-size: 1.75rem !important; /* Setara text-3xl Tailwind */
+    font-size: 1.75rem !important; /* Setara text-3xl */
+    line-height: 2.25rem !important;
   }
 
-  /* 3. Atur Marquee Tools agar tidak meluber ke samping kanan */
+  /* 3. Atur kecepatan marquee agar nyaman dilihat di HP */
   .marquee-track {
-    animation-duration: 20s; /* Percepat sedikit karena layar HP pendek */
+    animation-duration: 20s;
   }
 }
 
 @media (max-width: 480px) {
-  /* 4. Padding global untuk section di HP biar tidak terlalu mepet ke pinggir layar */
+  /* 4. Berikan ruang padding samping yang pas di HP kecil */
   section {
     padding-left: 1.25rem !important;
     padding-right: 1.25rem !important;
   }
 
-  /* 5. Khusus untuk ID Card di HP super kecil */
+  /* 5. Khusus ID Card di HP dengan lebar layar sangat tipis */
   .card-stage {
-    max-width: 290px;
+    max-width: 285px;
+  }
+  
+  /* Buat tombol call-to-action memenuhi lebar layar di HP kecil */
+  section#home .flex-wrap {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  section#home .flex-wrap a {
+    width: 100%;
+    justify-content: center;
   }
 }
