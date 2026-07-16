@@ -129,3 +129,51 @@ button:focus-visible {
     transition: none !important;
   }
 }
+/* =============================================================
+   RESPONSIVE STYLING (Untuk HP dan Tablet)
+   Menyesuaikan efek ID Card & Marquee agar pas di layar kecil
+============================================================= */
+
+@media (max-width: 768px) {
+  /* 1. Supaya ID Card tidak terlalu besar dan tidak kepotong di HP */
+  .card-stage {
+    perspective: 1000px; /* Kurangi perspective agar efek tilt tidak terlalu ekstrem di layar kecil */
+    width: 100%;
+    max-width: 320px;    /* Batasi lebar maksimal ID Card di HP */
+    margin: 0 auto;      /* Posisikan persis di tengah */
+  }
+
+  .id-card {
+    /* Matikan transform 3D saat di-hover di HP agar tidak mengganggu scroll jari */
+    transform: none !important; 
+    transition: box-shadow .3s ease;
+  }
+
+  /* 2. Menyesuaikan teks hero agar tidak terlalu besar di HP */
+  h1 {
+    font-size: 2.25rem !important; /* Setara text-4xl Tailwind */
+    line-height: 2.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important; /* Setara text-3xl Tailwind */
+  }
+
+  /* 3. Atur Marquee Tools agar tidak meluber ke samping kanan */
+  .marquee-track {
+    animation-duration: 20s; /* Percepat sedikit karena layar HP pendek */
+  }
+}
+
+@media (max-width: 480px) {
+  /* 4. Padding global untuk section di HP biar tidak terlalu mepet ke pinggir layar */
+  section {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* 5. Khusus untuk ID Card di HP super kecil */
+  .card-stage {
+    max-width: 290px;
+  }
+}
