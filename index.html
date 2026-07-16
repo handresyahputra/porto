@@ -5,11 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portofolio Handre Syahputra</title>
 
-<!-- =========================================================
-     GANTI FAVICON DI SINI (opsional)
-     Taruh file favicon.ico / favicon.png di folder assets/
-     lalu ganti href di bawah ini, contoh: "assets/favicon.png"
-========================================================= -->
+<!-- Favicon -->
 <link rel="icon" href="data:,">
 
 <!-- Google Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (data/ID) -->
@@ -38,7 +34,7 @@
   <nav class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
     <!-- GANTI INISIAL / LOGO DI SINI -->
     <a href="#home" class="font-display font-semibold text-lg tracking-tight text-white">
-      Handre Syahputra<span class="text-cyan">.</span>
+       Handre Syahputra<span class="text-cyan">.</span>
     </a>
 
     <div class="hidden md:flex items-center gap-8 text-sm text-muted">
@@ -59,18 +55,16 @@
   </nav>
 
   <!-- Menu mobile -->
-  <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-ink/95 px-6 py-4 flex flex-col gap-4 text-sm text-muted">
-    <a href="#about" class="mobile-link hover:text-white">Tentang</a>
-    <a href="#skills" class="mobile-link hover:text-white">Keahlian</a>
-    <a href="#projects" class="mobile-link hover:text-white">Proyek</a>
-    <a href="#contact" class="mobile-link hover:text-white">Kontak</a>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-ink/95 px-6 py-4 flex flex-col gap-4 text-sm text-muted transition-all duration-300">
+    <a href="#about" class="mobile-link hover:text-white py-1">Tentang</a>
+    <a href="#skills" class="mobile-link hover:text-white py-1">Keahlian</a>
+    <a href="#projects" class="mobile-link hover:text-white py-1">Proyek</a>
+    <a href="#contact" class="mobile-link hover:text-white py-1">Kontak</a>
   </div>
 </header>
 
 <!-- =========================================================
      HERO SECTION
-     Teks di bawah ini hanya teks FALLBACK. Nilai sebenarnya
-     akan otomatis diisi lewat js/data.js (objek PROFILE).
 ========================================================= -->
 <section id="home" class="relative pt-40 pb-24 px-6 max-w-6xl mx-auto grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-center">
 
@@ -90,21 +84,20 @@
       mengubah pola data mentah menjadi solusi aplikasi yang aplikatif di dunia nyata.
     </p>
 
-    <div class="mt-8 flex flex-wrap gap-4">
+    <div class="mt-8 flex flex-wrap gap-4 items-center">
       <a href="#projects" class="inline-flex items-center gap-2 bg-cyan text-ink font-semibold px-6 py-3 rounded-full hover:bg-cyan/90 transition-colors">
         Lihat Proyek Saya <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
       </a>
       <a id="heroResumeLink" href="#" class="inline-flex items-center gap-2 border border-border text-slate-200 px-6 py-3 rounded-full hover:border-cyan/50 hover:text-cyan transition-colors">
-        <i data-lucide="" class="w-4 h-4"></i> lihat
+         Lihat Resume
       </a>
     </div>
 
     <!-- Marquee tools singkat -->
     <div class="mt-14 overflow-hidden max-w-lg [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
       <div class="marquee-track flex gap-8 w-max text-muted text-xs font-mono uppercase tracking-wider">
-        <span>SQL</span><span>·</span><span>PHP</span><span>·</span><span>python</span><span>·</span>
-        <span>PHP</span><span>·</span><span>Python</span><span>·</span><span>SQL</span><span>·</span>
-     
+        <span>SQL</span><span>·</span><span>PHP</span><span>·</span><span>Python</span><span>·</span>
+        <span>Unity</span><span>·</span><span>Bootstrap</span><span>·</span><span>C#</span><span>·</span>
       </div>
     </div>
   </div>
@@ -130,7 +123,7 @@
             <i data-lucide="scan-line" class="w-5 h-5 text-cyan/70"></i>
           </div>
 
-          <!-- Foto profil: nilai src diisi otomatis dari PROFILE.idCard.photoUrl di js/data.js -->
+          <!-- Foto profil -->
           <div class="flex justify-center mb-5">
             <div class="relative">
               <div class="absolute inset-0 rounded-2xl bg-cyan/20 blur-xl"></div>
@@ -157,11 +150,11 @@
             </div>
           </div>
 
-          <!-- QR code tiruan: pola digambar otomatis oleh js/main.js -->
+          <!-- QR code tiruan -->
           <div class="flex items-center justify-between bg-inkalt/60 rounded-xl p-3 border border-white/5">
             <div id="qrCode" class="grid grid-cols-7 gap-[2px] w-16 h-16 shrink-0"></div>
             <div class="text-right">
-              <p class="text-[10px] uppercase tracking-wider text-muted">Batahan,Mandailing Natal</p>
+              <p class="text-[10px] uppercase tracking-wider text-muted">Batahan, Mandailing Natal</p>
               <p class="text-xs text-white font-medium">Sumatera Utara</p>
             </div>
           </div>
@@ -192,18 +185,16 @@
   <div class="max-w-6xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-16">
 
     <div class="reveal">
-     <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Tentang Saya</p>
-<h2 class="font-display font-semibold text-3xl text-white mb-6">Sedikit cerita tentang saya</h2>
-<!-- GANTI DESKRIPSI TENTANG DIRI DI SINI -->
-<p id="aboutText" class="text-muted leading-relaxed mb-4">
-  Perjalanan saya dimulai dari sebuah desa, tempat di mana akses teknologi awalnya terasa sangat jauh. Namun, rasa penasaran membawa saya melangkah ke dunia IT, dan sejak saat itu saya benar-benar jatuh cinta dengan bidang ini. Bagi saya, coding bukan sekadar mengetik baris instruksi, melainkan sebuah seni untuk menciptakan solusi dari keterbatasan.
-</p>
-<p class="text-muted leading-relaxed">
-  Sebagai mahasiswa Teknik Informatika, saya mendedikasikan waktu saya untuk berkembang di bidang data science. Saya senang mengolah data mentah menjadi wawasan yang bermakna, sekaligus membangun sistem digital yang stabil dan bermanfaat bagi banyak orang. Berbekal semangat juang dari latar belakang saya, saya selalu siap menghadapi tantangan baru dan berkolaborasi dalam proyek-proyek inovatif.
-</p>
+      <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Tentang Saya</p>
+      <h2 class="font-display font-semibold text-3xl text-white mb-6">Sedikit cerita tentang saya</h2>
+      <p id="aboutText" class="text-muted leading-relaxed mb-4">
+        Perjalanan saya dimulai dari sebuah desa, tempat di mana akses teknologi awalnya terasa sangat jauh. Namun, rasa penasaran membawa saya melangkah ke dunia IT, dan sejak saat itu saya benar-benar jatuh cinta dengan bidang ini. Bagi saya, coding bukan sekadar mengetik baris instruksi, melainkan sebuah seni untuk menciptakan solusi dari keterbatasan.
+      </p>
+      <p class="text-muted leading-relaxed">
+        Sebagai mahasiswa Teknik Informatika, saya mendedikasikan waktu saya untuk berkembang di bidang data science. Saya senang mengolah data mentah menjadi wawasan yang bermakna, sekaligus membangun sistem digital yang stabil dan bermanfaat bagi banyak orang. Berbekal semangat juang dari latar belakang saya, saya selalu siap menghadapi tantangan baru dan berkolaborasi dalam proyek-proyek inovatif.
+      </p>
 
       <div class="grid grid-cols-3 gap-4 mt-8">
-        <!-- GANTI ANGKA STATISTIK DI SINI -->
         <div class="border border-border rounded-2xl p-4 text-center bg-surface/40">
           <p class="font-display font-semibold text-2xl text-white">2+</p>
           <p class="text-xs text-muted mt-1">Tahun Belajar</p>
@@ -223,7 +214,7 @@
       <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3" id="skills">Keahlian</p>
       <h2 class="font-display font-semibold text-3xl text-white mb-6">Tools &amp; teknologi yang saya kuasai</h2>
 
-      <!-- Grid skill dirender otomatis oleh js/main.js dari js/data.js (SKILLS) -->
+      <!-- Grid skill dirender otomatis oleh js/main.js -->
       <div id="skillsGrid" class="grid sm:grid-cols-2 gap-3"></div>
     </div>
   </div>
@@ -237,10 +228,10 @@
     <div class="reveal text-center max-w-xl mx-auto mb-14">
       <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Proyek</p>
       <h2 class="font-display font-semibold text-3xl text-white mb-3">Beberapa hal yang pernah saya bangun</h2>
-      <p class="text-muted">Kumpulan proyek pilihan, dari eksperimen kecil dan tugas yang saya pelajari di perkulihan.</p>
+      <p class="text-muted">Kumpulan proyek pilihan, dari eksperimen kecil dan tugas yang saya pelajari di perkuliahan.</p>
     </div>
 
-    <!-- Grid proyek dirender otomatis oleh js/main.js dari js/data.js (PROJECTS) -->
+    <!-- Grid proyek dirender otomatis oleh js/main.js -->
     <div id="projectsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </div>
 </section>
@@ -253,10 +244,10 @@
     <p class="font-mono text-cyan text-sm tracking-widest uppercase mb-3">Kontak</p>
     <h2 class="font-display font-semibold text-3xl sm:text-4xl text-white mb-4">Mari terhubung</h2>
     <p class="text-muted max-w-md mx-auto mb-10">
-      .
+      Jangan ragu untuk menghubungi saya untuk kolaborasi atau sekadar berdiskusi seputar data science dan web development.
     </p>
 
-    <!-- Grid sosial media dirender otomatis oleh js/main.js dari js/data.js (SOCIALS) -->
+    <!-- Grid sosial media dirender otomatis oleh js/main.js -->
     <div id="socialsGrid" class="grid sm:grid-cols-2 gap-4 max-w-lg mx-auto"></div>
   </div>
 </section>
@@ -266,17 +257,31 @@
 ========================================================= -->
 <footer class="px-6 py-8 border-t border-border">
   <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted">
-    <p>© <span id="footerYear"></span> <span id="footerName">Handre Syahputra</p>
-  
+    <p>© <span id="footerYear"></span> <span id="footerName">Handre Syahputra</span></p>
   </div>
 </footer>
 
 <!-- =========================================================
      JAVASCRIPT
-     1. data.js  -> SEMUA KONTEN yang perlu kamu edit
-     2. main.js  -> logika render & interaksi (jarang perlu diubah)
 ========================================================= -->
 <script src="data.js"></script>
 <script src="main.js"></script>
+
+<!-- Logika Hamburger Menu Responsif -->
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
 </body>
 </html>
