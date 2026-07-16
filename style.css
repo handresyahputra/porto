@@ -211,3 +211,26 @@ button:focus-visible {
     justify-content: center;
   }
 }
+/* ---------- Cegah overflow horizontal (root cause umum) ---------- */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Pastikan semua elemen ikut box-sizing border-box */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Cegah gambar/elemen manapun melebihi lebar layar */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+.card-stage {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 310px;
+  margin: 0 auto;
+  touch-action: pan-y; /* biar scroll jalan normal, tilt-nya nggak ganggu */
+}
